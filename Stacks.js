@@ -1,3 +1,5 @@
+//STACK --- LIFO -> LAST IN FIRST OUT
+
 //USING LINKEDLIST
 class Node {
   constructor(value){
@@ -12,6 +14,8 @@ class Stack {
     this.bottom = null;
     this.length = 0;
   }
+  
+
   peek() {
     return this.top.value;
   }
