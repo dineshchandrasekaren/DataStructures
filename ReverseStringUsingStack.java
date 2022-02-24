@@ -4,6 +4,7 @@ import java.util.Stack;
 
 public class ReverseString {
     public String reverse(String input){
+        if(input==null) throw new IllegalArgumentException();
         Stack<Character> stacks =new Stack<>();
       
 //        for (int i = 0; i < input.length(); i++) {
