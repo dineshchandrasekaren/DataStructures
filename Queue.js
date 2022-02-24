@@ -1,3 +1,5 @@
+//QUEUES --- FIFO -> FIRST IN FIRST OUT
+
 //USING LINKEDLIST
 class Node {
   constructor(value){
@@ -12,38 +14,34 @@ class Queues{
     this.last=null;
     this.length=0;
   }
+  //get the first item in the queue
   peek(){
-    return this.last;
+    return this.first.value;
   }
-beforeLast(){
-  let currentQueue=this.first;
-  while(currentQueue.next!==null){
-    if(currentQueue.next.next===null) return currentQueue;
-    currentQueue=currentQueue.next;
-  }
-}
+//add a value to queue
 enqueue(value){
   let newNode=new Node(value);
   if(this.isEmpty()){
     this.first=this.last=newNode;
   }else{
-    newNode.next=this.first;
-    this.first=newNode;
+    this.last.next=newNode;
+    this.last=newNode;
   }
   this.length++;
 }
+  
+//remove the first item  
 dequeue(){
   if(this.isEmpty()) 
     return console.log("Queue was empty");
 
-    if(this.first===this.last)this.first=this.last=null;
-  
-    let Prev=this.beforeLast();
-    Prev.next=null;
-    this.last=Prev;
-    this.length--;
+    if(this.first===this.last){this.first=this.last=null; return;}
+  let temp=this.first.next;
+  this.first.next=null;
+  this.first=temp;
+  this.length--;
   }
-  
+  //check if the queue is empty or not
   isEmpty(){
     return this.first==null;
   }
