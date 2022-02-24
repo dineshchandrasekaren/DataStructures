@@ -77,7 +77,7 @@ class Queue{
 }
 
 let myQueue=new Queue();
-myQueue.enqueue(12);
+myQueue.enqueue(12); 
 myQueue.enqueue(13);
 myQueue.enqueue(14);
 myQueue.dequeue();
